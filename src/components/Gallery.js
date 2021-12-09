@@ -23,19 +23,25 @@ const users = [
   },
 ];
 
+//export default function Gallery() {
+//  const [value, setValue] = useState("none");
+//  return (
+//    <ul>
+//      {users.map((item) => (
+//        <li onClick={function () {
+//          setValue(value === "none" ? "1px solid red" : "none");
+//        }}
+//        //DEFINIR LA FONCTION ONCLICK
+//          style={{ border: value }}> {item.name} {item.age}</li>
+//      ))
+//      }
+//    </ul>
+//  )
+//}
+
 export default function Gallery() {
   const [value, setValue] = useState("none");
-  return (
-    <ul>
-      {users.map((item) => (
-        <li onClick={function () {
-          setValue(value === "none" ? "1px solid red" : "none");
-        }}
-        //DEFINIR LA FONCTION ONCLICK
-          style={{ border: value }}> {item.name} {item.age}</li>
-      ))
-      }
-    </ul>
-  )
+  return <div>{users.map(({name, age}) => <li style={{border: value === name ? "1px solid red" : "none"}} onClick={function(){
+    setValue(name);
+}}>{name} {age}</li>)}</div>
 }
-
